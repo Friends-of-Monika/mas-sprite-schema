@@ -1,0 +1,225 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "ACS (Split)",
+  "description": "Regular MAS ACS JSON schema",
+  "type": "object",
+  "properties": {
+    "version": {
+      "const": 3
+    },
+    "type": {
+      "enum": [
+        0,
+        1,
+        2
+      ]
+    },
+    "name": {
+      "type": "string"
+    },
+    "img_sit": {
+      "type": "string"
+    },
+    "pose_map": {
+      "type": "object",
+      "properties": {
+        "mpm_type": {
+          "type": "integer"
+        },
+        "default": {
+          "type": "string",
+          "default": null
+        },
+        "l_default": {
+          "type": "string",
+          "default": null
+        },
+        "use_reg_for_l": {
+          "type": "boolean",
+          "default": false
+        },
+        "p1": {
+          "type": "string",
+          "pattern": "^|\*|((0|1|5|10)(\^(0|1|5|10))*)$",
+          "default": null
+        },
+        "p2": {
+          "type": "string",
+          "pattern": "^|\*|((0|1|5|10)(\^(0|1|5|10))*)$",
+          "default": null
+        },
+        "p3": {
+          "type": "string",
+          "pattern": "^|\*|((0|1|5|10)(\^(0|1|5|10))*)$",
+          "default": null
+        },
+        "p4": {
+          "type": "string",
+          "pattern": "^|\*|((0|1|5|10)(\^(0|1|5|10))*)$",
+          "default": null
+        },
+        "p5": {
+          "type": "string",
+          "pattern": "^|\*|((0|1|5|10)(\^(0|1|5|10))*)$",
+          "default": null
+        },
+        "p6": {
+          "type": "string",
+          "pattern": "^|\*|((0|1|5|10)(\^(0|1|5|10))*)$",
+          "default": null
+        },
+        "p7": {
+          "type": "string",
+          "pattern": "^|\*|((0|1|5|10)(\^(0|1|5|10))*)$",
+          "default": null
+        }
+      }
+    },
+    "stay_on_start": {
+      "type": "boolean",
+      "default": false
+    },
+    "ex_props": {
+      "type": "object",
+      "properties": {
+        "drink": {
+          "type": [
+            "number",
+            "string",
+            "boolean",
+            "object",
+            "array",
+            "null"
+          ]
+        },
+        "excluded-hair-props": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "food": {
+          "type": [
+            "number",
+            "string",
+            "boolean",
+            "object",
+            "array",
+            "null"
+          ]
+        },
+        "left-desk-acs": {
+          "type": [
+            "number",
+            "string",
+            "boolean",
+            "object",
+            "array",
+            "null"
+          ]
+        },
+        "required-clothes-prop": {
+          "type": "string"
+        },
+        "required-hair-prop": {
+          "type": "string"
+        },
+        "ribbon-like": {
+          "type": [
+            "number",
+            "string",
+            "boolean",
+            "object",
+            "array",
+            "null"
+          ]
+        }
+      },
+      "default": {}
+    },
+    "select": {
+      "type": "object",
+      "properties": {
+        "display_name": {
+          "type": "string"
+        },
+        "thumb": {
+          "type": "string"
+        },
+        "group": {
+          "type": "string"
+        },
+        "visible_when_locked": {
+          "type": "boolean",
+          "default": true
+        },
+        "select_dlg": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "default": null
+        }
+      },
+      "required": [
+        "display_name",
+        "thumb",
+        "group"
+      ],
+      "default": {}
+    },
+    "rec_layer": {
+      "enum": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14
+      ],
+      "default": 2
+    },
+    "priority": {
+      "type": "integer",
+      "default": 10
+    },
+    "acs_type": {
+      "type": "string",
+      "default": null
+    },
+    "mux_type": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "default": null
+    },
+    "giftname": {
+      "type": "string",
+      "default": null
+    },
+    "dlg_plural": {
+      "type": "boolean"
+    },
+    "keep_on_desk": {
+      "type": "boolean",
+      "default": false
+    }
+  },
+  "required": [
+    "version",
+    "type",
+    "name",
+    "img_sit",
+    "pose_map"
+  ]
+}
