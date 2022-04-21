@@ -4,13 +4,32 @@
 
     "type": "object",
     "additionalProperties": false,
-    "required": [
-        "version",
-        "type",
-        "name",
-        "img_sit",
-        "pose_map"
-    ],
+
+    "if": {
+        "anyOf": [
+            { "properties": { "rec_layer": { "const": 8 } } },
+            { "properties": { "rec_layer": { "const": 9 } } }
+        ]
+    },
+    "then": {
+        "required": [
+            "version",
+            "type",
+            "name",
+            "img_sit",
+            "pose_map",
+            "arm_split"
+        ]
+    },
+    "else": {
+        "required": [
+            "version",
+            "type",
+            "name",
+            "img_sit",
+            "pose_map"
+        ]
+    },
 
     "properties": {
         "version": { "const": 3 },
