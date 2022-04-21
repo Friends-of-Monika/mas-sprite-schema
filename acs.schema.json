@@ -73,9 +73,9 @@
             "properties": {
                 "default": { "$ref": "#/$defs/filter" },
                 "mapping": {
-                    "type":                 "object",
-                    "patternProperties":    { "^.*$": { "$ref": "#/$defs/filter" } },
-                    "additionalProperties": false
+                    "type": "object",
+                    "additionalProperties": false,
+                    "patternProperties": { "^.*$": { "$ref": "#/$defs/filter" } }
                 }
             }
         },
