@@ -37,8 +37,8 @@
             "additionalProperties": false,
             "properties": {
                 "mpm_type":      { "type": "integer" },
-                "default":       { "$ref": "#/$defs/acs_split_pose" },
-                "l_default":     { "$ref": "#/$defs/acs_split_pose" },
+                "default":       { "$ref": "#/$defs/pose" },
+                "l_default":     { "$ref": "#/$defs/pose" },
                 "use_reg_for_l": { "type": "boolean", "default": false }
             },
             "patternProperties": {
