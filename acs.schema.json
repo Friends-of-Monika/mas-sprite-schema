@@ -44,7 +44,7 @@
                 "food":                { "$ref": "#/$defs/flag" },
                 "left-desk-acs":       { "$ref": "#/$defs/flag" },
                 "required-hair-prop":  { "type": "string" },
-                "ribbon":              { "$ref": "#/$defs/flag" },
+                "ribbon-like":         { "$ref": "#/$defs/flag" },
                 "twin-ribbon":         { "$ref": "#/$defs/flag" }
             }
         },
