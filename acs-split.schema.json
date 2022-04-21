@@ -14,7 +14,7 @@
 
     "properties": {
         "version": { "const": 3 },
-        "type":    { "enum": [ 0, 1, 2 ] },
+        "type":    { "const": 0 },
         "name":    { "type": "string" },
         "img_sit": { "$ref": "#/$defs/filename" },
 
