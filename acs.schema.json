@@ -36,7 +36,6 @@
 
         "ex_props": {
             "type": "object",
-            "additionalProperties": false,
             "default": { },
             "properties": {
                 "drink":               { "$ref": "#/$defs/flag" },
