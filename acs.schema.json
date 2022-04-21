@@ -1,218 +1,112 @@
 {
-  "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "title": "ACS (Regular)",
-  "description": "Regular MAS ACS JSON schema",
-  "type": "object",
-  "properties": {
-    "version": {
-      "const": 3
+    "title": "ACS (Regular)",
+    "description": "Monika After Story Mod regular ACS JSON schema",
+
+    "type": "object",
+    "additionalProperties": false,
+    "required": [
+        "version",
+        "type",
+        "name",
+        "img_sit",
+        "pose_map"
+    ],
+
+    "properties": {
+        "version": { "const": 3 },
+        "type":    { "enum": [ 0, 1, 2 ] },
+        "name":    { "type": "string" },
+        "img_sit": { "$ref": "#/$defs/filename" },
+
+        "pose_map": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "mpm_type":      { "type": "integer" },
+                "default":       { "$ref": "#/$defs/pose" },
+                "l_default":     { "$ref": "#/$defs/pose" },
+                "use_reg_for_l": { "type": "boolean", "default": false },
+
+                "p1": { "$ref": "#/$defs/pose" },
+                "p2": { "$ref": "#/$defs/pose" },
+                "p3": { "$ref": "#/$defs/pose" },
+                "p4": { "$ref": "#/$defs/pose" },
+                "p5": { "$ref": "#/$defs/pose" },
+                "p6": { "$ref": "#/$defs/pose" },
+                "p7": { "$ref": "#/$defs/pose" }
+            }
+        },
+
+        "stay_on_start": { "type": "boolean", "default": false },
+
+        "ex_props": {
+            "type": "object",
+            "additionalProperties": false,
+            "default": { },
+            "properties": {
+                "drink":               { "$ref": "#/$defs/flag" },
+                "excluded-hair-props": { "$ref": "#/$defs/string_list" },
+                "food":                { "$ref": "#/$defs/flag" },
+                "left-desk-acs":       { "$ref": "#/$defs/flag" },
+                "required-hair-prop":  { "type": "string" },
+                "ribbon":              { "$ref": "#/$defs/flag" },
+                "twin-ribbon":         { "$ref": "#/$defs/flag" }
+            }
+        },
+
+        "select_info": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "display_name":        { "type": "string" },
+                "thumb":               { "type": "string" },
+                "group":               { "type": "string" },
+                "visible_when_locked": { "type": "boolean", "default": true },
+                "select_dlg":          { "$ref": "#/$defs/string_list" }
+            }
+        },
+
+        "highlight": {
+            "type": "object",
+            "additionalProperties": false,
+
+            "properties": {
+                "default": { "$ref": "#/$defs/filter" },
+                "mapping": {
+                    "type":                 "object",
+                    "patternProperties":    { "^.*$": { "$ref": "#/$defs/filter" } },
+                    "additionalProperties": false
+                }
+            }
+        },
+
+        "dryrun":       { "$ref": "#/$defs/flag" },
+        "rec_layer":    { "enum": [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11 ], "default": 2 },
+        "priority":     { "type": "integer", "default": 10 },
+        "acs_type":     { "type": "string", "default": null },
+        "mux_type":     { "$ref": "#/$defs/string_list" },
+        "giftname":     { "$ref": "#/$defs/filename" },
+        "dlg_desc":     { "type": "string", "pattern": "^[^A-Z]*$" },
+        "dlg_plural":   { "type": "boolean" },
+        "keep_on_desk": { "type": "boolean", "default": false }
     },
-    "type": {
-      "enum": [
-        0,
-        1,
-        2
-      ]
-    },
-    "name": {
-      "type": "string"
-    },
-    "img_sit": {
-      "type": "string"
-    },
-    "pose_map": {
-      "type": "object",
-      "properties": {
-        "mpm_type": {
-          "type": "integer"
+
+    "$defs": {
+        "pose": { "type": "string", "default": null },
+
+        "flag": { },
+
+        "string_list": { "type": "array","items": { "type": "string" }, "default": null },
+
+        "filter":  {
+            "type": "object",
+            "properties": {
+                "default": { "type": "string" },
+                "day":     { "type": "string" },
+                "night":   { "type": "string" }
+            }
         },
-        "default": {
-          "type": "string",
-          "default": null
-        },
-        "l_default": {
-          "type": "string",
-          "default": null
-        },
-        "use_reg_for_l": {
-          "type": "boolean",
-          "default": false
-        },
-        "p1": {
-          "type": "string",
-          "default": null
-        },
-        "p2": {
-          "type": "string",
-          "default": null
-        },
-        "p3": {
-          "type": "string",
-          "default": null
-        },
-        "p4": {
-          "type": "string",
-          "default": null
-        },
-        "p5": {
-          "type": "string",
-          "default": null
-        },
-        "p6": {
-          "type": "string",
-          "default": null
-        },
-        "p7": {
-          "type": "string",
-          "default": null
-        }
-      }
-    },
-    "stay_on_start": {
-      "type": "boolean",
-      "default": false
-    },
-    "ex_props": {
-      "type": "object",
-      "properties": {
-        "drink": {
-          "type": [
-            "number",
-            "string",
-            "boolean",
-            "object",
-            "array",
-            "null"
-          ]
-        },
-        "excluded-hair-props": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
-        },
-        "food": {
-          "type": [
-            "number",
-            "string",
-            "boolean",
-            "object",
-            "array",
-            "null"
-          ]
-        },
-        "left-desk-acs": {
-          "type": [
-            "number",
-            "string",
-            "boolean",
-            "object",
-            "array",
-            "null"
-          ]
-        },
-        "required-clothes-prop": {
-          "type": "string"
-        },
-        "required-hair-prop": {
-          "type": "string"
-        },
-        "ribbon-like": {
-          "type": [
-            "number",
-            "string",
-            "boolean",
-            "object",
-            "array",
-            "null"
-          ]
-        }
-      },
-      "default": {}
-    },
-    "select": {
-      "type": "object",
-      "properties": {
-        "display_name": {
-          "type": "string"
-        },
-        "thumb": {
-          "type": "string"
-        },
-        "group": {
-          "type": "string"
-        },
-        "visible_when_locked": {
-          "type": "boolean",
-          "default": true
-        },
-        "select_dlg": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          },
-          "default": null
-        }
-      },
-      "required": [
-        "display_name",
-        "thumb",
-        "group"
-      ],
-      "default": {}
-    },
-    "rec_layer": {
-      "enum": [
-        0,
-        1,
-        2,
-        3,
-        4,
-        5,
-        6,
-        7,
-        8,
-        9,
-        10,
-        11,
-        12,
-        13,
-        14
-      ],
-      "default": 2
-    },
-    "priority": {
-      "type": "integer",
-      "default": 10
-    },
-    "acs_type": {
-      "type": "string",
-      "default": null
-    },
-    "mux_type": {
-      "type": "array",
-      "items": {
-        "type": "string"
-      },
-      "default": null
-    },
-    "giftname": {
-      "type": "string",
-      "default": null
-    },
-    "dlg_plural": {
-      "type": "boolean"
-    },
-    "keep_on_desk": {
-      "type": "boolean",
-      "default": false
+
+        "filename": { "type": "string", "pattern": "^[^./\\\\]*$" }
     }
-  },
-  "required": [
-    "version",
-    "type",
-    "name",
-    "img_sit",
-    "pose_map"
-  ]
 }
