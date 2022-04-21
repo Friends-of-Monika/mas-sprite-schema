@@ -1,6 +1,6 @@
 {
-    "title": "ACS (Regular)",
-    "description": "Monika After Story Mod regular ACS JSON schema",
+    "title": "ACS (Split)",
+    "description": "Monika After Story Mod split ACS JSON schema",
 
     "type": "object",
     "additionalProperties": false,
@@ -29,6 +29,20 @@
             },
             "patternProperties": {
                 "p[0-7]": { "$ref": "#/$defs/pose" }
+            }
+        },
+
+        "arm_split": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "mpm_type":      { "type": "integer" },
+                "default":       { "$ref": "#/$defs/pose" },
+                "l_default":     { "$ref": "#/$defs/pose" },
+                "use_reg_for_l": { "type": "boolean", "default": false }
+            },
+            "patternProperties": {
+                "p[0-7]": { "$ref": "#/$defs/acs_split_pose" }
             }
         },
 
@@ -88,6 +102,9 @@
 
     "$defs": {
         "pose": { "type": "string", "default": null },
+        "acs_split_pose": {
+            "type": "string", "pattern": "^(?:|\\*|(?:(?:0|1|5|10))(?:\\^(?:0|1|5|10))*)$", "default": null
+        },
 
         "flag": { },
 
