@@ -56,7 +56,7 @@
             "additionalProperties": false,
             "properties": {
                 "display_name":        { "type": "string" },
-                "thumb":               { "type": "string" },
+                "thumb":               { "type": "#/$defs/filename" },
                 "group":               { "type": "string" },
                 "visible_when_locked": { "type": "boolean", "default": true },
                 "select_dlg":          { "$ref": "#/$defs/string_list" }
