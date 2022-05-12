@@ -15,6 +15,8 @@
     ],
 
     "properties": {
+        "__author": { "$ref": "#/$defs/any" },
+
         "version": { "const": 3 },
         "type":    { "const": 2 },
         "name":    { "type": "string" },
@@ -108,11 +110,11 @@
         "pose": {
             "anyOf": [
                 {
-                    "if":   { "properties": { "mpm_type": 0 } },
+                    "if":   { "properties": { "mpm_type": { "const": 0 } } },
                     "then": { "type": "boolean" }
                 },
                 {
-                    "if":   { "properties": { "mpm_type": 1 } },
+                    "if":   { "properties": { "mpm_type": { "const": 1 } } },
                     "then": {
                         "enum": [
                             "steepling", "crossed", "restleftpointright", "pointright", "down", "downleftpointright", "def|def"
@@ -159,6 +161,8 @@
                     }
                 }
             }
-        }
+        },
+
+        "any": { "type": [ "number", "string", "boolean", "object", "array", "null" ] }
     }
 }

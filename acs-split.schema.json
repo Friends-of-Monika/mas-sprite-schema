@@ -34,6 +34,8 @@
     },
 
     "properties": {
+        "__author": { "$ref": "#/$defs/any" },
+
         "version": { "const": 3 },
         "type":    { "const": 0 },
         "name":    { "type": "string" },
@@ -139,6 +141,8 @@
             }
         },
 
-        "filename": { "type": "string", "pattern": "^[^./\\\\]*$" }
+        "filename": { "type": "string", "pattern": "^[^./\\\\]*$" },
+
+        "any": { "type": [ "number", "string", "boolean", "object", "array", "null" ] }
     }
 }
