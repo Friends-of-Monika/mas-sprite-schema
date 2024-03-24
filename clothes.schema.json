@@ -145,7 +145,12 @@
             "type": "object",
             "required": [ "tag", "layers" ],
             "properties": {
-                "tag": { "type": "string", "pattern": "^arms-(?:left|right)-" },
+                "tag": {
+                    "type": "string",
+                    "enum": [
+                        "steepling", "crossed", "restleftpointright", "pointright", "down", "downleftpointright", "def|def"
+                    ]
+                },
                 "layers": {
                     "type": "string", "pattern": "^(?:|\\*|(?:(?:0|1|5|10))(?:\\^(?:0|1|5|10))*)$"
                 },
