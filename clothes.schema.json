@@ -94,15 +94,17 @@
         "giftname": { "$ref": "#/$defs/filename" },
 
         "pose_arms": {
-            "crossed":             { "$ref": "#/$defs/pose_arm" },
-            "left-down":           { "$ref": "#/$defs/pose_arm" },
-            "left-rest":           { "$ref": "#/$defs/pose_arm" },
-            "right-down":          { "$ref": "#/$defs/pose_arm" },
-            "right-point":         { "$ref": "#/$defs/pose_arm" },
-            "right-restpoint":     { "$ref": "#/$defs/pose_arm" },
-            "steepling":           { "$ref": "#/$defs/pose_arm" },
-            "def|left-down":       { "$ref": "#/$defs/pose_arm" },
-            "def|right-def":       { "$ref": "#/$defs/pose_arm" }
+            "properties": {
+                "crossed":             { "$ref": "#/$defs/pose_arm" },
+                "left-down":           { "$ref": "#/$defs/pose_arm" },
+                "left-rest":           { "$ref": "#/$defs/pose_arm" },
+                "right-down":          { "$ref": "#/$defs/pose_arm" },
+                "right-point":         { "$ref": "#/$defs/pose_arm" },
+                "right-restpoint":     { "$ref": "#/$defs/pose_arm" },
+                "steepling":           { "$ref": "#/$defs/pose_arm" },
+                "def|left-down":       { "$ref": "#/$defs/pose_arm" },
+                "def|right-def":       { "$ref": "#/$defs/pose_arm" }
+            }
         }
     },
 
