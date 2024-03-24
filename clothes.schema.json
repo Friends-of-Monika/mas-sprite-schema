@@ -148,7 +148,7 @@
                 "tag": {
                     "type": "string",
                     "enum": [
-                        "steepling", "crossed", "restleftpointright", "pointright", "down", "downleftpointright", "def|def"
+                        "steepling", "crossed", "rest", "point", "down", "restpoint", "def"
                     ]
                 },
                 "layers": {
