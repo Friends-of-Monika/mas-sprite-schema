@@ -105,7 +105,10 @@
                 "def|left-down":       { "$ref": "#/$defs/pose_arm" },
                 "def|right-def":       { "$ref": "#/$defs/pose_arm" }
             }
-        }
+        },
+
+        "outfit_hair": { "type": "string" },
+        "outfit_acs":  { "type": "string" }
     },
 
     "$defs": {
