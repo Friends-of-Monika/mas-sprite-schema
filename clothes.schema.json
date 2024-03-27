@@ -108,7 +108,8 @@
         },
 
         "outfit_hair": { "type": "string" },
-        "outfit_acs":  { "type": "string" }
+
+        "outfit_acs":  { "$ref": "string_list" }
     },
 
     "$defs": {
