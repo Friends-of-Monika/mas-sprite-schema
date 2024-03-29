@@ -1,0 +1,21 @@
+name: Run official spritepack tests
+
+on:
+  pull_request:
+  push:
+
+jobs:
+  test:
+    name: Test schema files on official spritepacks
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Setup NodeJS
+        uses: actions/setup-node@v4
+        with: { node-version: 21 }
+      - name: Install packages
+        run: cd test && yarn install
+      - name: Run tests
+        run: cd test && yarn test

@@ -1,0 +1,3 @@
+{
+    "setupFilesAfterEnv": ["jest-expect-message"]
+}
