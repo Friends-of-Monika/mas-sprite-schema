@@ -61,7 +61,8 @@
                 "thumb":               { "$ref": "#/$defs/filename" },
                 "group":               { "type": "string" },
                 "visible_when_locked": { "type": "boolean", "default": true },
-                "select_dlg":          { "$ref": "#/$defs/string_list" }
+                "select_dlg":          { "$ref": "#/$defs/string_list" },
+                "hover_dlg":           { "$ref": "#/$defs/string_list" }
             }
         },
 

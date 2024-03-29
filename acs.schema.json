@@ -60,7 +60,8 @@
                 "thumb":               { "$ref": "#/$defs/filename" },
                 "group":               { "type": "string" },
                 "visible_when_locked": { "type": "boolean", "default": true },
-                "select_dlg":          { "$ref": "#/$defs/string_list" }
+                "select_dlg":          { "$ref": "#/$defs/string_list" },
+                "hover_dlg":           { "$ref": "#/$defs/string_list" }
             }
         },
 
@@ -84,7 +85,7 @@
         "acs_type":     { "type": "string", "default": null },
         "mux_type":     { "$ref": "#/$defs/string_list" },
         "giftname":     { "$ref": "#/$defs/filename" },
-        "dlg_desc":     { "type": "string", "pattern": "^[^A-Z]*$" },
+        "dlg_desc":     { "type": "string" },
         "dlg_plural":   { "type": "boolean" },
         "keep_on_desk": { "type": "boolean", "default": false }
     },
