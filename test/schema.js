@@ -2,9 +2,10 @@ import { readFile } from "fs/promises";
 import Ajv from "ajv";
 
 const ajv = new Ajv({
+    allowMatchingProperties: true,
     allowUnionTypes: true,
     allErrors: true,
-    allowMatchingProperties: true
+    strict: false
 });
 
 async function compileSchemaJson(name) {
