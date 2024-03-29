@@ -6,8 +6,10 @@ spritepack JSON files without a need to test them by launching the mod.
 
 ## Coverage
 
-Currently, no schema files were tested against real world spritepack JSON files. However, schema files work fine
+Currently, all schema files were tested against official spritepack JSON files. Schema files work fine
 with examples shown on [Monika After Story wiki page](https://github.com/Monika-After-Story/MonikaModDev/wiki/Adding-Sprite-Objects#json-format).
+
+For more details, see action runs and `test/` directory with test scripts.
 
 ## Usage
 
